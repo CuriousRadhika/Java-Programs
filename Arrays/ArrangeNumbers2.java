@@ -20,3 +20,27 @@ class ArrangeNumbers{
         }
     }
 }
+
+// #include <iostream>
+// using namespace std;
+
+// #include "solution.h"
+
+// void arrange(int *arr, int n)
+// {
+//     //Write your code here
+//     int val=1;
+//     int start = 0 ,end = n-1;
+//     while(start<=end){
+//         if(val%2==1){
+//     arr[start]=val;
+//     val++;
+//     start++;
+//   }  
+//         else{
+//             arr[end]=val;
+//     val++;
+//     end--;
+//         }
+//     }
+// }

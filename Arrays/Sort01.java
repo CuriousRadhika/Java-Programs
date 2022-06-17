@@ -7,10 +7,10 @@ class Sort01{
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int a[] = new int[n];
-        for(int x=0 ; x<a.length ; x++)
+       for(int x=0 ; x<a.length ; x++)
         {
             a[x] = sc.nextInt();
-        }
+        } 
         return a;
     }
     public static void print(int[] a)

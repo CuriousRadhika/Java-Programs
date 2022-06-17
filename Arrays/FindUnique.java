@@ -74,8 +74,9 @@ class FindUnique{
         for(int x=0 ; x<t ; x++)
         {
             int a[] = input();
-            System.out.println(findUnique2(a));
+            System.out.println(findUnique4(a));
             
         }
     }
+    
 }

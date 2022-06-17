@@ -3,14 +3,13 @@ import java.util.Scanner;
 class outputcheck{
 
 
-    public static void change(int input[]){
-		input = new int[5];
-		input[0] = 15;
-        }
-	
-        public static void main(String args[]){
-            int arr[] = new int[5];
-            change(arr);
-            System.out.println(arr[0]);
-        }
+   public static void main(String[] args)
+   {
+    StringBuffer str1=new StringBuffer("");
+for(int i=0;i<5;i++)
+{
+    str1.append((char)('a'+i));
+}
+System.out.println(str1);
+   }
 }

@@ -68,8 +68,6 @@ class PushZeroesToEnd{
             int a[] = input();
             pushzeroesToEnd2(a);
             print(a);
-          
-            
         }
     }
 }

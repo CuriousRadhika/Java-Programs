@@ -45,6 +45,7 @@ class RotateArray{
             }
             nums[0]=t;
         }
+    }
     
     public static void main(String[] args)
     {
@@ -54,10 +55,22 @@ class RotateArray{
         {
             int a[] = input();
             int n = sc.nextInt();
-            rotatearrayleft(a, n);
+            rotatearrayleft1(a, n);
             print(a);
           
             
+        }
+    }
+    public static void rotatearrayleft1(int[] nums, int k)
+    {
+        for(int x=1 ; x<=k ; x++)
+        {
+            int t = nums[0];
+            for(int y=0 ; y<nums.length-1 ; y++)
+            {
+                nums[y] = nums[y+1];
+            }
+            nums[nums.length-1]=t;
         }
     }
 }
