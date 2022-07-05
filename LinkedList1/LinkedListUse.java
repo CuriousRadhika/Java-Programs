@@ -97,7 +97,12 @@ public class LinkedListUse {
     }
 
     public static int getData(Node<Integer> head, int i) {
-
+        int c=0;
+        while(c<i) {
+            head = head.next;
+            c++;
+        }
+        return head.data;
     }
 
     public static void main(String[] args) {
@@ -111,7 +116,8 @@ public class LinkedListUse {
         // head = insertNode(head , 80 ,6);
         // head = delNode(head , 6);
 
-        System.out.println(length(head));
+        // System.out.println(length(head));
+        System.out.println(getData(head , 4));
         // print(head);
     }
 }
