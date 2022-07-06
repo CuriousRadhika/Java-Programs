@@ -87,7 +87,31 @@ public class LL2 {
         print_recursive_reverse(head.next);
         System.out.print(head.data + " ");
     }
+    public static Node<Integer> insert_recursive(Node<Integer> head , int element, int pos)
+    {
+        if(head==null && pos>0)
+        return head;
 
+        if(pos==0){
+            Node<Integer> newNode = new Node<Integer>(element);
+            newNode.next = head;
+            return newNode;
+        }
+        else{
+            head.next=insert_recursive(head.next, element, pos-1);
+            return head;
+        }
+    }
+    public static Node<Integer> reverse_recursive(Node<Integer> head)
+    {
+        if(head==null || head.next==null)
+        return head;
+
+        Node<Integer> reversed_head = reverse_recursive(head.next);
+        head.next.next=head;
+        head.next=null;
+        return reversed_head;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -100,9 +124,12 @@ public class LL2 {
         // System.out.println();
         // print(h3);
 
-        printrecursive(head);
-        System.out.println();
-        print_recursive_reverse(head);
+        // printrecursive(head);
+        // System.out.println();
+        // print_recursive_reverse(head);
+
+        head = reverse_recursive(head);
+        print(head);
         
 
     }

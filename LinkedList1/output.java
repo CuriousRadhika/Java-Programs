@@ -1,24 +1,42 @@
+import java.util.*;
+import java.io.*;
 public  class output{
 
-    public static void print(Node<Integer> head){
-       Node<Integer> temp = head;
+    public static void fun(Node<Integer> start)
+    {
+      if(start == null)
+        return;
+      System.out.print( start.data+" ");
+    
+      if(start.next != null )
+        fun(start.next.next);
+      System.out.printf(start.data+" ");
+    }
 
-       while(temp != null){
-           System.out.print(temp.data +" ");
-           temp = temp.next;
-       }
-       System.out.println();
-   }
- 
+    public static Node<Integer> takeInput() {
+        Scanner sc = new Scanner(System.in);
+        Node<Integer> head = null;
+        int data = sc.nextInt();
+        while (data != -1) {
+            Node<Integer> newNode = new Node<Integer>(data);
+            if (head == null) {
+                head = newNode;
+            } else {
+                Node<Integer> temp = head;
+                while (temp.next != null) {
+                    temp = temp.next;
+                }
+                temp.next = newNode;
+            }
+            data = sc.nextInt();
+        }
+        return head;
+    }
    public static void main(String args[]){
    
-       Node<Integer> node1 = new Node<Integer>(10);
-       Node<Integer> node2 = new Node<Integer>(20);
-       Node<Integer> node3 = new Node<Integer>(30);
-       Node<Integer> node4 = new Node<Integer>(40);
-       node1.next = node2;
-       node2.next = node3;
-       node3.next = node4;
-       print(node2);
-      }
+       Node<Integer> head = takeInput();
+       fun(head);
+       
+      
    }
+}
