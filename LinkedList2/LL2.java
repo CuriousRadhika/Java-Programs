@@ -112,6 +112,21 @@ public class LL2 {
         head.next=null;
         return reversed_head;
     }
+    public static Node<Integer> delete_recursive(Node<Integer> head , int pos)
+    {
+        if(head==null)
+        {
+            return head;
+        }
+        else if(pos==0){
+            return head.next;
+        }
+        else
+        {
+            head.next=delete_recursive(head.next, pos-1);
+            return head;
+        }
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -128,10 +143,8 @@ public class LL2 {
         // System.out.println();
         // print_recursive_reverse(head);
 
-        head = reverse_recursive(head);
+        head = delete_recursive(head , 0);
         print(head);
-        
-
     }
 
 }
