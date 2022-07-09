@@ -1,0 +1,93 @@
+public class QueueUsingArray {
+
+    private int data[];
+    private int front;
+    private int rear;
+    private int size;
+
+    public QueueUsingArray() {
+        data = new int[10];
+        front = -1;
+        rear = -1;
+        size = 0;
+    }
+
+    public QueueUsingArray(int capacity) {
+        data = new int[capacity];
+        front = -1;
+        rear = -1;
+        size = 0;
+    }
+
+    int size() {
+        return size;
+    }
+
+    boolean isEmpty() {
+        return size == 0;
+    }
+
+    int front() throws QueueEmptyException {
+        if (size == 0) {
+            throw new QueueEmptyException();
+        }
+        return data[front];
+    }
+
+    void enqueue(int element) throws QueueFullException {
+        if (size == data.length) {
+            throw new QueueFullException();
+        }
+
+        if (size == 0)
+            front++; // or front=0;
+
+        rear = (rear + 1) % data.length;
+
+        data[rear] = element;
+        size++;
+    }
+
+    int dequeue() throws QueueEmptyException {
+        if (size == 0) {
+            throw new QueueEmptyException();
+        }
+
+        int temp = data[front++];
+        size--;
+
+        if (size == 0) {
+            front = -1;
+            rear = -1;
+        }
+        return temp;
+    }
+
+    public static void main(String[] args) throws QueueFullException {
+        QueueUsingArray q = new QueueUsingArray();
+
+        for (int x = 1; x <= 10; x++) {
+            q.enqueue(x);
+        }
+
+        try {
+
+            System.out.println(q.dequeue());
+        } catch (Exception e) {
+            System.out.println("Empty");
+        }
+
+       
+        q.enqueue(11);
+        
+        try {
+
+           while (!q.isEmpty()) {
+            System.out.println(q.dequeue());
+           }
+        } catch (Exception e) {
+            System.out.println("Empty");
+        }
+
+    }
+}
