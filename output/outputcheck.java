@@ -1,22 +1,23 @@
 import java.util.Scanner;
 
-class outputcheck{
+class outputchec{
 
-
-    public static void print(int n){
-		if(n < 0){
-			return;
+	static int fun(int a, int b)
+	{
+		if((3^b)>(b+a) && (b-a)>(a&b))
+		{
+			a=(a+3)+a;
+			b=(a+3)+b;
+			b=b+2;
+			return fun(a+1 , a);
 		}
-		if(n == 0){
-			System.out.println(n);
-			return;
-		}
-		print(n--);
-		System.out.print(n+" ");
+		b=2+a+b;
+		return a-b+1;
 	}
 	
 	public static void main(String[] args) {
-		int num = 3;
-		print(num);
+		
+		
+		System.out.println(fun(0,5));
 	}
 }

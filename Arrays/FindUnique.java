@@ -29,7 +29,7 @@ class FindUnique{
             int c=0;
             for(int y=0 ; y<a.length ; y++)
             {
-                if(a[x]==a[y])
+               if(a[x]==a[y]) 
                 c++;
             }
             if(c==1)

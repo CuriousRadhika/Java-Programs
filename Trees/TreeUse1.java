@@ -200,13 +200,32 @@ public class TreeUse1 {
         }
         return true;
     }
+    public static int maxSumNode(TreeNode<Integer> root)
+    {
+        int sum=root.data; int node=root.data;
+        for (int i = 0; i < root.children.size(); i++)
+        {
+            sum+=root.children.get(i).data;
+        }
 
+        int childSum=0;
+        for (int i = 0; i < root.children.size(); i++)
+        {
+            childSum+=maxSumNode(root.children.get(i));
+            if(childSum>sum)
+            {
+                node=root.children.get(i).data;
+                sum=childSum;
+            }
+        }
+        return node;
+    }
     public static void main(String[] args) {
-        TreeNode<Integer> root1 = takeInput();
-        TreeNode<Integer> root2 = takeInput();
+        TreeNode<Integer> root = takeInput();
+        
 
-        print(root1);
-        print(root2);
-        System.out.println(isStructurallyIdentical(root1, root2));
+        print(root);
+     
+        System.out.println(maxSumNode(root));
     }
 }
