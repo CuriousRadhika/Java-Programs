@@ -127,13 +127,47 @@ public class BinaryTreeUse1 {
         {
             return -1;
         }
-        int leftLargest = largest(root.left);
-        int rightLargest = largest(root.right);
+        int leftLargest = nodeWithLargestData(root.left);
+        int rightLargest = nodeWithLargestData(root.right);
         return Math.max(leftLargest, Math.max(rightLargest, root.data));
 
         // int largest = root.data;
         // return Math.max(largest,  Math.max(leftLargest, rightLargest));
     }
+    public static int sumOfNodes(BinaryTreeNode<Integer> root)
+    {
+        if(root==null) return 0 ;
+        
+        return root.data + sumOfNodes(root.left) + sumOfNodes(root.right);
+    }
+    public static int numberOfLeafNodes(BinaryTreeNode<Integer> root)
+    {
+        if(root==null) return 0 ;
+        if(root.left==null && root.right==null) return 1 ;
+        return numberOfLeafNodes(root.left) + numberOfLeafNodes(root.right);
+    }
+    public static void printAtDepthK(BinaryTreeNode<Integer> root , int k)
+    {
+        if(root==null) return ;
+        if(k==0)
+        {
+            System.out.println(root.data);
+        }
+        printAtDepthK(root.left, k-1);
+        printAtDepthK(root.right, k-1);
+    }
+    public static void replaceNodeWithDepthK(BinaryTreeNode<Integer> root, int pos)
+    {
+        if(root==null) return ;
+        root.data =pos;
+        replaceNodeWithDepthK(root.left , pos+1);
+        replaceNodeWithDepthK(root.right, pos+1);
+    }
+    public static void replaceNodeWithDepthK(BinaryTreeNode<Integer> root)
+    {
+        replaceNodeWithDepthK(BinaryTreeNode<Integer> root , 0);
+    }
+    
     public static void main(String[] args)
     {
         // BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>;
@@ -146,9 +180,15 @@ public class BinaryTreeUse1 {
         BinaryTreeNode<Integer> root = takeInput(sc);
         // BinaryTree<Integer> root = takeInputLevelWise();
         // printTree(root);
-        System.out.println(countNodes(root));
+        // System.out.println(countNodes(root));
         // preorder(root);
-       System.out.println(height(root));10
+    //    System.out.println(height(root));
+    //System.out.println(sumOfNodes(root));
+    // printAtDepthK(root , 1);
+    // System.out.println(numberOfLeafNodes(root));
+
+    replaceNodeWithDepthK(root);
+    inorder(root);
       
     }
 }
