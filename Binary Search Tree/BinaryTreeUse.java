@@ -1,6 +1,8 @@
 
 import java.util.*;
 
+import javax.lang.model.util.ElementScanner14;
+
 
 public class BinaryTreeUse{
     public static BinaryTreeNode<Integer> takeInput(Scanner sc) {
@@ -51,23 +53,52 @@ public class BinaryTreeUse{
     public static void printBetweenk1andk2(BinaryTreeNode<Integer> root, int k1, int k2)
     {
         if(root==null)return;
-        if(root.data<=k2 && root.data>=k1)
-        System.out.println(root.data);
-        if(root.data>=k1)
+        if(root.data<k1)
+        {
+            printBetweenk1andk2(root.right, k1, k2);
+            
+        }
+        else if(root.data>k2)
         {
             printBetweenk1andk2(root.left, k1, k2);
         }
-        if(root.data<=k2)
-        {
+        else{
+            System.out.println(root.data);
+            printBetweenk1andk2(root.left, k1, k2);
             printBetweenk1andk2(root.right, k1, k2);
         }
+    }
+    public static BinaryTreeNode<Integer> BSTfromSortedArray(int a[] , int si, int ei)
+    {
+        if(si>ei)
+        return null;
+
+        int mi = (si+ei)/2;
+        BinaryTreeNode<Integer> root = new BinaryTreeNode<>(a[mi]);
+        root.left = BSTfromSortedArray(a, si, mi-1);
+        root.right = BSTfromSortedArray(a, mi+1 , ei);
+        return root;
+
+    }
+    public static void preorder(BinaryTreeNode<Integer> root)
+    {
+        if(root == null)
+        {
+            return;
+        }
+        System.out.print(root.data+ " ");
+        preorder(root.left);
+        preorder(root.right);
     }
     public static void main(String[] args)
     {
      Scanner sc = new Scanner(System.in);
-     BinaryTreeNode root = takeInput(sc);
+    //  BinaryTreeNode root = takeInput(sc);
     //  System.out.println(search(root ,5).data);
-    printBetweenk1andk2(root, 20, 50);
+    // printBetweenk1andk2(root, 20, 50);
+    
+    int a[] = {1,2,3,4,5,6,7};
+    preorder(BSTfromSortedArray(a, 0, 6));
         
     }
 }
