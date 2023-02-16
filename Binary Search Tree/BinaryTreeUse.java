@@ -11,7 +11,6 @@ public class BinaryTreeUse{
         int rootData = sc.nextInt();
         if(rootData == -1)
         {
-
             return null;
         }
         BinaryTreeNode<Integer> root = new BinaryTreeNode<>(rootData);
@@ -89,6 +88,14 @@ public class BinaryTreeUse{
         System.out.print(root.data+ " ");
         preorder(root.left);
         preorder(root.right);
+    }
+    public static Node<Integer> `
+       Pair<BinaryTreeNode<Integer>, BinaryTreeNode<Integer>> list = new Pair<>();
+       left.head = BSTtoSortedLL(root.left);
+
+       Node<Integer> head 
+
+       left.tail = BSTtoSortedLL(root.right);
     }
     public static void main(String[] args)
     {
