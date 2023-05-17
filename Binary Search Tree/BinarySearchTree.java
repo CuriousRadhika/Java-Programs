@@ -1,5 +1,3 @@
-
-
 public class BinarySearchTree {
     private BinaryTreeNode<Integer> root;
     public BinaryTreeNode insertData(int data, BinaryTreeNode<Integer> root){
