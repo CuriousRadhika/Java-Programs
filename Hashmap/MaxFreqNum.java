@@ -15,6 +15,11 @@ public class MaxFreqNum {
                  v++;
             }
             map.put(a[i], v);
+
+            // if(map.containsKey(a[i]))
+            // map.put(a[i] , map.get(a[i])+1);
+            // else
+            // map.put(a[i] ,1);
     }
          
     Set<Integer> keys = map.keySet();
