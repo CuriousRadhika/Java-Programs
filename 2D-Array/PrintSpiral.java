@@ -63,8 +63,8 @@ public class PrintSpiral {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
-        for (int x = 1; x <= t; x++) {
-            int a[][] = input();
+       for (int x = 1; x <= t; x++) {
+             int a[][] = input();
             printSpiral1(a);
         }
     }

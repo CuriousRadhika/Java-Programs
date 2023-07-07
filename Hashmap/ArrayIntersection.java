@@ -22,7 +22,7 @@ public class ArrayIntersection {
         {
             if(map.containsKey(b[i]) && map.get(b[i])>0)
             {
-                map.put(b[i], map.get(b[i]-1));
+             map.put(b[i], map.get(b[i]-1));   
                 System.out.println(b[i]);
             }
         }

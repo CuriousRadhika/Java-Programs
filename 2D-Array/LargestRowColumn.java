@@ -41,7 +41,7 @@ public class LargestRowColumn {
             if(s>sum)
             {
                 sum=s;
-              str="column";
+                str="column";
                 index=x;
             }
         }
@@ -49,10 +49,12 @@ public class LargestRowColumn {
        System.out.println(str+" "+index+" "+sum);
 
     }
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
-        for (int x = 1; x <= t; x++) {
+        for (int x = 1; x <= t; x++)
+        {
             int a[][] = input();
             largestRowColumn(a);
         }
