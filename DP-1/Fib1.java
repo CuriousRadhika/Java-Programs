@@ -1,7 +1,7 @@
 
 public class Fib1 {
 
-    public static int fib(int n)
+    public static int fib(int n)// fib recursive
     {
         if(n==0 || n==1)
         {
@@ -9,15 +9,15 @@ public class Fib1 {
         }
         return fib(n-1)+fib(n-2);
     }
-    public static int fib_dp(int n)
+    public static int fibM(int n)// fib memoization
     {
         int storage[] = new int[n+1];
         for(int x=0 ; x<=n ; x++){
             storage[x] = -1;
         }
-        return fib_dp(n, storage);
+        return fibM(n, storage);
     }
-    public static int fib_dp(int n , int[] storage)
+    public static int fibM(int n , int[] storage)
     {
         if(n==0|| n==1)
         {
@@ -28,14 +28,27 @@ public class Fib1 {
         {
             return storage[n];
         }
-        storage[n] = fib_dp(n-1, storage) + fib_dp(n-2, storage);
+        storage[n] = fibM(n-1, storage) + fibM(n-2, storage);
         return storage[n];
+    }
+    public static int fibDP(int n)// fib DP approach
+    {
+        int storage[] = new int[n+1];
+        storage[0]=0;
+        storage[1]=1;
+        for(int x=2 ; x<=n ; x++)
+        {
+            storage[x] = storage[x-1]+storage[x-2];
+        }
+        return storage[n];
+
     }
     public static void main(String[] args)
     {
-        int n=48;
+        int n=40;
         System.out.println(fib(n));
-        System.out.println(fib_dp(n));
+        System.out.println(fibM(n));
+        System.out.println(fibDP(n));
     }
     
 }
